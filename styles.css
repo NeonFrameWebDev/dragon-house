@@ -339,6 +339,21 @@ section{ position:relative; }
   font-size:clamp(.95rem,2.4vw,1.15rem); letter-spacing:.5px; text-shadow:0 1px 10px rgba(0,0,0,.7); }
 .hero-ctas{ display:flex; gap:.8rem; flex-wrap:wrap; justify-content:center; margin-top:.5rem; }
 
+/* Home hero: left-aligned text so the building sign stays visible on the right */
+.hero-left{ text-align:left; align-items:flex-start; }
+.hero-left .hero-content{ align-items:flex-start; }
+.hero-left .hero-ctas{ justify-content:flex-start; }
+.hero-left .medallion-hero{ margin-inline:0; }
+.hero-left .hero-headline, .hero-left .hero-sub{ margin-inline:0; }
+.hero-left .hero-overlay{
+  background:
+    linear-gradient(90deg, rgba(var(--black-rgb),.74) 0%, rgba(var(--black-rgb),.5) 38%, rgba(var(--black-rgb),.16) 70%, rgba(var(--black-rgb),0) 100%),
+    linear-gradient(180deg, rgba(var(--black-rgb),.30) 0%, rgba(var(--black-rgb),0) 48%, rgba(var(--black-rgb),.55) 100%);
+}
+@media(max-width:760px){
+  .hero-left .hero-overlay{ background:linear-gradient(180deg, rgba(var(--black-rgb),.5) 0%, rgba(var(--black-rgb),.34) 42%, rgba(var(--black-rgb),.72) 100%); }
+}
+
 /* compact hero on a solid red/dark band (no photo) */
 .hero-band{ display:flex; flex-direction:column; align-items:center; text-align:center; gap:.9rem; }
 .hero-band .medallion{ width:64px; height:64px; }
