@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<!--
+  Dragon House, Cocina China y Cantonesa, Puerto Penasco, Sonora, MX.
+  Multipage spec site by NeonFrame Web Design (Forge).
+
+  Brand = Dragon House (NOT NeonFrame). Deep red + gold + black on cream paper.
+  The gold dragon medallion is the single hero emblem, always a CIRCULAR disc
+  (border-radius 50%, gold ring) so the square crop and glare never show. The
+  "Dragon House" wordmark is Cinzel TYPE, not the glare-y photographed brush
+  wordmark. Gold greek-key borders and dividers are the connective motif.
+  Cinzel (display) + Nunito Sans (body). Red-lantern warmth.
+
+  Shared HEADER and FOOTER markup is identical on all 5 pages; only the active
+  nav link and the <title> change. Shared look in styles.css, shared behavior
+  in app.js. Bilingual EN/ES, Spanish equal, toggle persists in localStorage.
+
+  House rules: no em-dashes, no en-dashes, real assets only, no invented prices.
+-->
+
+<title>Dragon House | Cocina China y Cantonesa, Puerto Penasco</title>
+<meta name="description" content="Authentic family Chinese and Cantonese kitchen in the heart of Puerto Penasco. Generous combo plates, delivery (servicio a domicilio), cards accepted. Open daily 12 PM to 9 PM." />
+
+<!-- Share surface. og:url is the GitHub Pages preview during the spec phase; Bolt repoints at delivery. og:image is a real photo. -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Dragon House | Cocina China y Cantonesa, Puerto Penasco" />
+<meta property="og:description" content="Authentic family Chinese and Cantonese kitchen in the heart of Puerto Penasco. Generous combo plates, delivery, cards accepted." />
+<meta property="og:image" content="assets/photos/exterior.jpg" />
+<meta property="og:url" content="https://neonframewebdev.github.io/dragon-house/" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Dragon House | Cocina China y Cantonesa, Puerto Penasco" />
+<meta name="twitter:description" content="Authentic family Chinese and Cantonese kitchen in the heart of Puerto Penasco. Generous combos, delivery, cards accepted." />
+<meta name="twitter:image" content="assets/photos/exterior.jpg" />
+<meta name="theme-color" content="#B11E1E" />
+
+<!-- SVG favicon: a gold dragon-house disc (the raster medallion is too detailed at favicon size). Gold ring + key tick on deep red. -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23B11E1E'/%3E%3Ccircle cx='16' cy='16' r='11' fill='none' stroke='%23C9A24B' stroke-width='2'/%3E%3Cpath d='M11 12 L11 20 L13 20 L13 14 L19 14 L19 20 L21 20 L21 12 Z' fill='%23C9A24B'/%3E%3C/svg%3E" />
+
+<!-- Exact CSS2 fonts link from the design spec: Cinzel (display/wordmark) + Nunito Sans (body), italic 400 included. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Nunito+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+
+<!-- =========================== LOADER =========================== -->
+<div id="loader" aria-hidden="true">
+  <div class="loader-inner">
+    <img class="loader-medallion" src="assets/photos/dragon-medallion.jpg" width="84" height="84" alt="" />
+    <div class="loader-bar"><i></i></div>
+    <div class="loader-word">DRAGON HOUSE</div>
+  </div>
+</div>
+
+<!-- =========================================================================
+     SHARED HEADER (identical on every page; only the .is-active link changes)
+     ========================================================================= -->
+<header class="site-header">
+  <nav class="nav" id="nav" aria-label="Primary">
+    <div class="wrap nav-inner">
+      <a class="brand-lockup" href="index.html" aria-label="Dragon House home" data-en-label="Dragon House home" data-es-label="Dragon House inicio">
+        <img class="medallion" src="assets/photos/dragon-medallion.jpg" width="44" height="44" alt="Dragon House gold dragon medallion" data-en="Dragon House gold dragon medallion" data-es="Medallon dorado del dragon de Dragon House" />
+        <span class="brand-text">
+          <span class="bt-main font-display">Dragon House</span>
+          <span class="bt-sub">Cocina China y Cantonesa</span>
+        </span>
+      </a>
+
+      <div class="nav-links">
+        <a href="index.html" class="is-active" data-en="Home" data-es="Inicio">Home</a>
+        <a href="menu.html" data-en="Menu" data-es="Men&uacute;">Menu</a>
+        <a href="about.html" data-en="About" data-es="Nosotros">About</a>
+        <a href="gallery.html" data-en="Gallery" data-es="Galer&iacute;a">Gallery</a>
+        <a href="visit.html" data-en="Visit" data-es="Vis&iacute;tanos">Visit</a>
+      </div>
+
+      <div class="nav-right">
+        <button class="lang-toggle" id="langToggle" type="button" aria-label="Switch language to Spanish">
+          <span class="lt-code is-active" data-code="en">EN</span>
+          <span class="lt-sep" aria-hidden="true">|</span>
+          <span class="lt-code" data-code="es">ES</span>
+        </button>
+        <a class="btn btn-primary nav-cta" href="tel:+526386883284" data-en="Call Us" data-es="Ll&aacute;manos">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.5.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.5.1.4 0 .8-.3 1l-2.2 2.3z"/></svg>
+          <span data-en="Call Us" data-es="Ll&aacute;manos">Call Us</span>
+        </a>
+        <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="navPanel" aria-label="Open menu" data-en-label="Open menu" data-es-label="Abrir men&uacute;">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- 3px gold greek-key strip along the bottom edge of the header -->
+  <div class="greek-strip" aria-hidden="true"></div>
+
+  <!-- Mobile slide-down panel -->
+  <div class="nav-panel" id="navPanel">
+    <a class="np-link is-active" href="index.html" data-en="Home" data-es="Inicio">Home</a>
+    <a class="np-link" href="menu.html" data-en="Menu" data-es="Men&uacute;">Menu</a>
+    <a class="np-link" href="about.html" data-en="About" data-es="Nosotros">About</a>
+    <a class="np-link" href="gallery.html" data-en="Gallery" data-es="Galer&iacute;a">Gallery</a>
+    <a class="np-link" href="visit.html" data-en="Visit" data-es="Vis&iacute;tanos">Visit</a>
+    <div class="np-foot">
+      <button class="lang-toggle" id="langTogglePanel" type="button" aria-label="Switch language to Spanish">
+        <span class="lt-code is-active" data-code="en">EN</span>
+        <span class="lt-sep" aria-hidden="true">|</span>
+        <span class="lt-code" data-code="es">ES</span>
+      </button>
+      <a class="btn btn-primary" href="tel:+526386883284" data-en="Call Us" data-es="Ll&aacute;manos">Call Us</a>
+    </div>
+  </div>
+</header>
+<!-- =========================== END SHARED HEADER =========================== -->
+
+<main>
+
+<!-- =========================== HERO =========================== -->
+<section class="hero" aria-label="Dragon House storefront" data-en-label="Dragon House storefront" data-es-label="Fachada de Dragon House">
+  <div class="hero-photo" aria-hidden="true">
+    <img src="assets/photos/exterior.jpg" width="1600" height="1067" alt="" fetchpriority="high" />
+  </div>
+  <div class="hero-overlay" aria-hidden="true"></div>
+
+  <div class="wrap hero-content">
+    <div class="medallion-wrap">
+      <img class="medallion-hero" src="assets/photos/dragon-medallion.jpg" width="150" height="150" alt="Dragon House gold dragon medallion" data-en="Dragon House gold dragon medallion" data-es="Medallon dorado del dragon de Dragon House" />
+    </div>
+
+    <h1 class="hero-title font-display">Dragon House</h1>
+    <p class="hero-headline" data-en="A Family Chinese Kitchen in the Heart of Puerto Penasco" data-es="Una cocina china familiar en el coraz&oacute;n de Puerto Pe&ntilde;asco">A Family Chinese Kitchen in the Heart of Puerto Penasco</p>
+    <p class="hero-sub" data-en="Authentic Chinese and Cantonese cooking, generous combo plates, and a warm welcome at every table." data-es="Cocina china y cantonesa aut&eacute;ntica, platillos combinados generosos y una bienvenida c&aacute;lida en cada mesa.">Authentic Chinese and Cantonese cooking, generous combo plates, and a warm welcome at every table.</p>
+    <p class="hero-tagline" data-en="Come hungry, leave family." data-es="Llega con hambre, sal como familia.">Come hungry, leave family.</p>
+
+    <div class="hero-ctas">
+      <a class="btn btn-primary" href="tel:+526386883284" data-en="Call to Order" data-es="Llama para Ordenar">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.5.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.5.1.4 0 .8-.3 1l-2.2 2.3z"/></svg>
+        <span data-en="Call to Order" data-es="Llama para Ordenar">Call to Order</span>
+      </a>
+      <a class="btn btn-primary" href="menu.html" data-en="See the Menu" data-es="Ver el Men&uacute;">See the Menu</a>
+      <a class="btn btn-ghost" href="visit.html" data-en="Visit Us" data-es="Vis&iacute;tanos">Visit Us</a>
+    </div>
+  </div>
+
+  <a href="#welcome" class="scroll-cue" aria-label="Scroll to content" data-en-label="Scroll to content" data-es-label="Desplazarse al contenido">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+  </a>
+</section>
+
+<!-- greek-key divider -->
+<div class="key-divider" aria-hidden="true">
+  <span class="rule"></span>
+  <span class="dot"></span>
+  <span class="rule right"></span>
+</div>
+
+<!-- =========================== WELCOME / INTRO =========================== -->
+<section class="band band-cream" id="welcome">
+  <div class="wrap">
+    <div class="intro-grid">
+      <div>
+        <span class="kicker reveal" data-en="Welcome" data-es="Bienvenidos">Welcome</span>
+        <h2 class="h-sec reveal" data-delay="1" data-en="Come hungry, leave family." data-es="Llega con hambre, sal como familia.">Come hungry, leave family.</h2>
+        <p class="body-p reveal" data-delay="1"
+           data-en="Dragon House is a family restaurant on Cuauhtemoc in the Centro of Puerto Penasco. We cook the Chinese and Cantonese dishes our family loves, the kind made to share. Our plates come piled high, our dining room glows with red lanterns and gold, and there is always a seat for you. Dine in with us, or call and we will bring it to your door."
+           data-es="Dragon House es un restaurante familiar en Cuauht&eacute;moc, en el Centro de Puerto Pe&ntilde;asco. Cocinamos los platillos chinos y cantoneses que nuestra familia quiere, de esos hechos para compartir. Nuestros platos llegan bien servidos, nuestro comedor brilla con faroles rojos y dorado, y siempre hay un lugar para ti. Acomp&aacute;&ntilde;anos en el comedor, o ll&aacute;manos y te lo llevamos a tu puerta.">Dragon House is a family restaurant on Cuauhtemoc in the Centro of Puerto Penasco. We cook the Chinese and Cantonese dishes our family loves, the kind made to share. Our plates come piled high, our dining room glows with red lanterns and gold, and there is always a seat for you. Dine in with us, or call and we will bring it to your door.</p>
+      </div>
+      <figure class="intro-figure reveal" data-delay="2">
+        <img src="assets/photos/interior-wide.jpg" width="1200" height="900" loading="lazy" alt="Dragon House dining room with red lanterns and a gold fortune mural" data-en="Dragon House dining room with red lanterns and a gold fortune mural" data-es="Comedor de Dragon House con faroles rojos y un mural dorado de la buena fortuna" />
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- =========================== HIGHLIGHTS =========================== -->
+<section class="band band-cream-soft">
+  <div class="wrap">
+    <span class="kicker reveal" data-en="Why Dragon House" data-es="Por qu&eacute; Dragon House">Why Dragon House</span>
+    <h2 class="h-sec reveal" data-delay="1" data-en="Generous plates, warm welcome." data-es="Platos generosos, bienvenida c&aacute;lida.">Generous plates, warm welcome.</h2>
+    <div class="cards-3">
+      <article class="feature-card key-frame reveal" data-delay="1">
+        <svg class="fc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 10h14M5 14h14"/><circle cx="12" cy="12" r="9"/></svg>
+        <h3 data-en="Plates to Share" data-es="Platos para Compartir">Plates to Share</h3>
+        <p data-en="Generous combos built for one or for two. Bring an appetite and bring a friend." data-es="Combinados generosos para una o para dos personas. Trae el apetito y trae un amigo.">Generous combos built for one or for two. Bring an appetite and bring a friend.</p>
+        <div class="pill-row">
+          <a class="pill" href="menu.html" data-en="Comida Express, for one" data-es="Comida Express, para 1">Comida Express, for one</a>
+          <a class="pill" href="menu.html" data-en="Comida Corrida, for two" data-es="Comida Corrida, para 2">Comida Corrida, for two</a>
+        </div>
+      </article>
+      <article class="feature-card key-frame reveal" data-delay="2">
+        <svg class="fc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 7h11v8H3z"/><path d="M14 10h4l3 3v2h-7z"/><circle cx="6.5" cy="17.5" r="1.8"/><circle cx="17.5" cy="17.5" r="1.8"/></svg>
+        <h3 data-en="We Deliver" data-es="Servicio a Domicilio">We Deliver</h3>
+        <p data-en="Servicio a domicilio. Call us and we will bring dinner to your door." data-es="Servicio a domicilio. Ll&aacute;manos y te llevamos la cena hasta tu puerta.">Servicio a domicilio. Call us and we will bring dinner to your door.</p>
+        <div class="pill-row">
+          <span class="pill pill-lantern" data-en="Delivery" data-es="A domicilio">Delivery</span>
+          <span class="pill" data-en="Cards accepted" data-es="Aceptamos tarjetas">Cards accepted</span>
+        </div>
+      </article>
+      <article class="feature-card key-frame reveal" data-delay="3">
+        <svg class="fc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 3l2.6 5.6 6 .7-4.5 4.1 1.2 5.9L12 16.9 6.7 19.3l1.2-5.9L3.4 9.3l6-.7z"/></svg>
+        <h3 data-en="Loved Locally" data-es="Querido en el Barrio">Loved Locally</h3>
+        <p data-en="Rated 4.4 stars on Google by neighbors and visitors alike." data-es="Calificado con 4.4 estrellas en Google por vecinos y visitantes.">Rated 4.4 stars on Google by neighbors and visitors alike.</p>
+        <div class="pill-row">
+          <span class="pill" data-en="4.4 on Google" data-es="4.4 en Google">4.4 on Google</span>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- greek-key divider -->
+<div class="key-divider" aria-hidden="true">
+  <span class="rule"></span>
+  <span class="dot"></span>
+  <span class="rule right"></span>
+</div>
+
+<!-- =========================== MENU PREVIEW =========================== -->
+<section class="band band-cream">
+  <div class="wrap">
+    <span class="kicker reveal" data-en="A taste of the menu" data-es="Una probada del men&uacute;">A taste of the menu</span>
+    <h2 class="h-sec reveal" data-delay="1" data-en="Combos made to share." data-es="Combinados hechos para compartir.">Combos made to share.</h2>
+    <div class="preview-grid">
+      <article class="preview-card key-frame reveal" data-delay="1">
+        <span class="pc-no" data-en="Comida Express No. 1" data-es="Comida Express No. 1">Comida Express No. 1</span>
+        <span class="pc-name" data-en="Chun Kung, arroz frito, chop suey con pollo, carnitas coloradas" data-es="Chun Kung, arroz frito, chop suey con pollo, carnitas coloradas">Chun Kung, arroz frito, chop suey con pollo, carnitas coloradas</span>
+        <span class="pc-price font-display">$160 <small>MXN</small></span>
+      </article>
+      <article class="preview-card key-frame reveal" data-delay="2">
+        <span class="pc-no" data-en="Comida Express No. 9" data-es="Comida Express No. 9">Comida Express No. 9</span>
+        <span class="pc-name" data-en="Arroz frito, carnitas coloradas, camaron empanizado, camaron en salsa de ostion" data-es="Arroz frito, carnitas coloradas, camar&oacute;n empanizado, camar&oacute;n en salsa de osti&oacute;n">Arroz frito, carnitas coloradas, camaron empanizado, camaron en salsa de ostion</span>
+        <span class="pc-price font-display">$245 <small>MXN</small></span>
+      </article>
+      <article class="preview-card key-frame reveal" data-delay="3">
+        <span class="pc-no" data-en="Comida Corrida No. 1, for two" data-es="Comida Corrida No. 1, para 2">Comida Corrida No. 1, for two</span>
+        <span class="pc-name" data-en="Chun Kung, arroz frito, pollo con pina, pollo cantones, chop suey con pollo, carnitas coloradas" data-es="Chun Kung, arroz frito, pollo con pi&ntilde;a, pollo canton&eacute;s, chop suey con pollo, carnitas coloradas">Chun Kung, arroz frito, pollo con pina, pollo cantones, chop suey con pollo, carnitas coloradas</span>
+        <span class="pc-price font-display">$400 <small>MXN</small></span>
+      </article>
+    </div>
+    <div class="center-cta reveal">
+      <a class="btn btn-primary" href="menu.html" data-en="See the full menu" data-es="Ver el men&uacute; completo">See the full menu</a>
+    </div>
+  </div>
+</section>
+
+<!-- =========================== PHOTO STRIP =========================== -->
+<section class="band band-cream-soft">
+  <div class="wrap">
+    <span class="kicker reveal" data-en="Inside the house" data-es="Dentro de la casa">Inside the house</span>
+    <h2 class="h-sec reveal" data-delay="1" data-en="Red lanterns and gold." data-es="Faroles rojos y dorado.">Red lanterns and gold.</h2>
+    <div class="photo-strip">
+      <a class="strip-tile reveal" data-delay="1" href="gallery.html">
+        <img src="assets/photos/interior-seating.jpg" width="800" height="800" loading="lazy" alt="Dining room booths under red lanterns" data-en="Dining room booths under red lanterns" data-es="Mesas del comedor bajo faroles rojos" />
+        <span class="st-cap" data-en="The dining room" data-es="El comedor">The dining room</span>
+      </a>
+      <a class="strip-tile reveal" data-delay="2" href="gallery.html">
+        <img src="assets/photos/buddha.jpg" width="800" height="800" loading="lazy" alt="Jade laughing Buddha by the door" data-en="Jade laughing Buddha by the door" data-es="Buda dorado que r&iacute;e junto a la entrada" />
+        <span class="st-cap" data-en="The laughing Buddha" data-es="El Buda que r&iacute;e">The laughing Buddha</span>
+      </a>
+      <a class="strip-tile reveal" data-delay="3" href="gallery.html">
+        <img src="assets/photos/lucky-cat.jpg" width="800" height="800" loading="lazy" alt="Gold lucky cat, maneki-neko" data-en="Gold lucky cat, maneki-neko" data-es="Gato de la suerte dorado, maneki-neko" />
+        <span class="st-cap" data-en="The lucky cat" data-es="El gato de la suerte">The lucky cat</span>
+      </a>
+      <a class="strip-tile reveal" data-delay="4" href="gallery.html">
+        <img src="assets/photos/counter.jpg" width="800" height="800" loading="lazy" alt="The counter and fortune motifs" data-en="The counter and fortune motifs" data-es="El mostrador y los motivos de la fortuna" />
+        <span class="st-cap" data-en="See the gallery" data-es="Ver la galer&iacute;a">See the gallery</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- greek-key divider -->
+<div class="key-divider" aria-hidden="true">
+  <span class="rule"></span>
+  <span class="dot"></span>
+  <span class="rule right"></span>
+</div>
+
+<!-- =========================== VISIT TEASER =========================== -->
+<section class="band band-red has-watermark">
+  <img class="watermark-medallion" src="assets/photos/dragon-medallion.jpg" alt="" aria-hidden="true" />
+  <div class="wrap">
+    <div class="teaser-grid">
+      <div class="teaser-info">
+        <span class="kicker reveal" data-en="Come see us" data-es="Ven a vernos">Come see us</span>
+        <h2 class="h-sec reveal" data-delay="1" data-en="Open daily, 12 to 9." data-es="Abierto todos los d&iacute;as, 12 a 21.">Open daily, 12 to 9.</h2>
+        <p class="ti-line reveal" data-delay="1">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+          <span data-en="Open daily, 12 PM to 9 PM" data-es="Abierto todos los d&iacute;as, 12 PM a 9 PM">Open daily, 12 PM to 9 PM</span>
+        </p>
+        <p class="ti-line reveal" data-delay="2">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 21s7-5.6 7-11a7 7 0 10-14 0c0 5.4 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+          <span data-en="Cuauhtemoc 48, Centro, Puerto Penasco" data-es="Cuauht&eacute;moc 48, Centro, Puerto Pe&ntilde;asco">Cuauhtemoc 48, Centro, Puerto Penasco</span>
+        </p>
+      </div>
+      <div class="teaser-ctas reveal" data-delay="2">
+        <a class="btn btn-primary" href="tel:+526386883284" data-en="Call Us" data-es="Ll&aacute;manos">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.5.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.5.1.4 0 .8-.3 1l-2.2 2.3z"/></svg>
+          <span data-en="Call Us" data-es="Ll&aacute;manos">Call Us</span>
+        </a>
+        <a class="btn btn-ghost" href="visit.html" data-en="Get directions" data-es="C&oacute;mo llegar">Get directions</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- =========================================================================
+     SHARED FOOTER (identical on every page)
+     ========================================================================= -->
+<footer class="site-footer">
+  <div class="greek-strip" aria-hidden="true"></div>
+  <div class="wrap footer-inner">
+    <div class="footer-brand">
+      <img class="medallion" src="assets/photos/dragon-medallion.jpg" width="52" height="52" alt="Dragon House gold dragon medallion" data-en="Dragon House gold dragon medallion" data-es="Medallon dorado del dragon de Dragon House" />
+      <span class="fb-word font-display">Dragon House</span>
+      <span class="fb-sub">Cocina China y Cantonesa</span>
+    </div>
+    <p class="footer-tag"
+       data-en="Authentic Chinese and Cantonese kitchen in the heart of Puerto Penasco. Come hungry, leave family."
+       data-es="Cocina china y cantonesa aut&eacute;ntica en el coraz&oacute;n de Puerto Pe&ntilde;asco. Llega con hambre, sal como familia.">Authentic Chinese and Cantonese kitchen in the heart of Puerto Penasco. Come hungry, leave family.</p>
+
+    <div class="footer-cols">
+      <div class="footer-col">
+        <h4 data-en="Visit" data-es="Vis&iacute;tanos">Visit</h4>
+        <p data-en="Cuauhtemoc 48, Centro" data-es="Cuauht&eacute;moc 48, Centro">Cuauhtemoc 48, Centro</p>
+        <p>83550 Puerto Pe&ntilde;asco, Sonora</p>
+        <p data-en="Between Calle Sonora and Melchor Ocampo" data-es="Entre Calle Sonora y Melchor Ocampo">Between Calle Sonora and Melchor Ocampo</p>
+      </div>
+      <div class="footer-col">
+        <h4 data-en="Hours" data-es="Horario">Hours</h4>
+        <p data-en="Open daily" data-es="Abierto todos los d&iacute;as">Open daily</p>
+        <p data-en="12:00 PM to 9:00 PM" data-es="12:00 a 21:00">12:00 PM to 9:00 PM</p>
+        <div class="footer-pills pill-row">
+          <span class="pill pill-lantern" data-en="Delivery" data-es="A domicilio">Delivery</span>
+          <span class="pill" data-en="Cards" data-es="Tarjetas">Cards</span>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4 data-en="Contact" data-es="Contacto">Contact</h4>
+        <p><a class="fc-phone font-display" href="tel:+526386883284">638 688 3284</a></p>
+        <p data-en="Servicio a domicilio (delivery)" data-es="Servicio a domicilio">Servicio a domicilio (delivery)</p>
+        <p data-en="Cards: Visa, Mastercard, Amex, Apple Pay" data-es="Tarjetas: Visa, Mastercard, Amex, Apple Pay">Cards: Visa, Mastercard, Amex, Apple Pay</p>
+        <!-- owner-confirm: add real FB/IG handles if any -->
+        <div class="footer-social">
+          <a href="https://www.facebook.com/search/top?q=Dragon%20House%20Puerto%20Penasco" target="_blank" rel="noopener" aria-label="Find Dragon House on Facebook" data-en-label="Find Dragon House on Facebook" data-es-label="Encu&eacute;ntranos en Facebook">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14 9h3l.5-3H14V4.5c0-.9.3-1.5 1.6-1.5H17V.3C16.6.2 15.6 0 14.5 0 12 0 10.5 1.4 10.5 4.1V6H8v3h2.5v9H14z"/></svg>
+            <span>Facebook</span>
+          </a>
+          <a href="https://www.google.com/maps/search/Dragon+House+Cuauhtemoc+48+Puerto+Penasco" target="_blank" rel="noopener" aria-label="Find Dragon House on Google" data-en-label="Find Dragon House on Google" data-es-label="Encu&eacute;ntranos en Google">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 21s7-5.6 7-11a7 7 0 10-14 0c0 5.4 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+            <span data-en="Reviews" data-es="Rese&ntilde;as">Reviews</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; <span id="year"></span> Dragon House &middot; <span data-en="Site by" data-es="Sitio por">Site by</span> <a href="index.html">NeonFrame</a></p>
+    </div>
+  </div>
+</footer>
+<!-- =========================== END SHARED FOOTER =========================== -->
+
+<script src="app.js"></script>
+</body>
+</html>

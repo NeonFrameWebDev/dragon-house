@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<!--
+  Dragon House VISIT page (Visitanos). Hours, address, phone (tel + a big Call
+  button), a Google Maps embed on the Cuauhtemoc 48 address in a gold greek-key
+  frame, delivery + cards notes, the hours.jpg door-decal accent, and a short
+  non-functional contact form (spec demo, buyer wires the endpoint after purchase).
+  Shared HEADER + FOOTER identical to the other pages. No em-dashes, no en-dashes.
+-->
+
+<title>Visit | Dragon House, Puerto Penasco</title>
+<meta name="description" content="Visit Dragon House at Cuauhtemoc 48, Centro, Puerto Penasco. Open daily 12 PM to 9 PM. Call 638 688 3284. Servicio a domicilio and cards accepted." />
+
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Visit | Dragon House, Puerto Penasco" />
+<meta property="og:description" content="Cuauhtemoc 48, Centro, Puerto Penasco. Open daily 12 PM to 9 PM. Call 638 688 3284. Delivery and cards accepted." />
+<meta property="og:image" content="assets/photos/exterior-3.jpg" />
+<meta property="og:url" content="https://neonframewebdev.github.io/dragon-house/visit.html" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="theme-color" content="#B11E1E" />
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23B11E1E'/%3E%3Ccircle cx='16' cy='16' r='11' fill='none' stroke='%23C9A24B' stroke-width='2'/%3E%3Cpath d='M11 12 L11 20 L13 20 L13 14 L19 14 L19 20 L21 20 L21 12 Z' fill='%23C9A24B'/%3E%3C/svg%3E" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Nunito+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+
+<!-- =========================== LOADER =========================== -->
+<div id="loader" aria-hidden="true">
+  <div class="loader-inner">
+    <img class="loader-medallion" src="assets/photos/dragon-medallion.jpg" width="84" height="84" alt="" />
+    <div class="loader-bar"><i></i></div>
+    <div class="loader-word">DRAGON HOUSE</div>
+  </div>
+</div>
+
+<!-- =========================================================================
+     SHARED HEADER (identical on every page; only the .is-active link changes)
+     ========================================================================= -->
+<header class="site-header">
+  <nav class="nav" id="nav" aria-label="Primary">
+    <div class="wrap nav-inner">
+      <a class="brand-lockup" href="index.html" aria-label="Dragon House home" data-en-label="Dragon House home" data-es-label="Dragon House inicio">
+        <img class="medallion" src="assets/photos/dragon-medallion.jpg" width="44" height="44" alt="Dragon House gold dragon medallion" data-en="Dragon House gold dragon medallion" data-es="Medallon dorado del dragon de Dragon House" />
+        <span class="brand-text">
+          <span class="bt-main font-display">Dragon House</span>
+          <span class="bt-sub">Cocina China y Cantonesa</span>
+        </span>
+      </a>
+
+      <div class="nav-links">
+        <a href="index.html" data-en="Home" data-es="Inicio">Home</a>
+        <a href="menu.html" data-en="Menu" data-es="Men&uacute;">Menu</a>
+        <a href="about.html" data-en="About" data-es="Nosotros">About</a>
+        <a href="gallery.html" data-en="Gallery" data-es="Galer&iacute;a">Gallery</a>
+        <a href="visit.html" class="is-active" data-en="Visit" data-es="Vis&iacute;tanos">Visit</a>
+      </div>
+
+      <div class="nav-right">
+        <button class="lang-toggle" id="langToggle" type="button" aria-label="Switch language to Spanish">
+          <span class="lt-code is-active" data-code="en">EN</span>
+          <span class="lt-sep" aria-hidden="true">|</span>
+          <span class="lt-code" data-code="es">ES</span>
+        </button>
+        <a class="btn btn-primary nav-cta" href="tel:+526386883284" data-en="Call Us" data-es="Ll&aacute;manos">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.5.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.5.1.4 0 .8-.3 1l-2.2 2.3z"/></svg>
+          <span data-en="Call Us" data-es="Ll&aacute;manos">Call Us</span>
+        </a>
+        <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="navPanel" aria-label="Open menu" data-en-label="Open menu" data-es-label="Abrir men&uacute;">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- 3px gold greek-key strip along the bottom edge of the header -->
+  <div class="greek-strip" aria-hidden="true"></div>
+
+  <!-- Mobile slide-down panel -->
+  <div class="nav-panel" id="navPanel">
+    <a class="np-link" href="index.html" data-en="Home" data-es="Inicio">Home</a>
+    <a class="np-link" href="menu.html" data-en="Menu" data-es="Men&uacute;">Menu</a>
+    <a class="np-link" href="about.html" data-en="About" data-es="Nosotros">About</a>
+    <a class="np-link" href="gallery.html" data-en="Gallery" data-es="Galer&iacute;a">Gallery</a>
+    <a class="np-link is-active" href="visit.html" data-en="Visit" data-es="Vis&iacute;tanos">Visit</a>
+    <div class="np-foot">
+      <button class="lang-toggle" id="langTogglePanel" type="button" aria-label="Switch language to Spanish">
+        <span class="lt-code is-active" data-code="en">EN</span>
+        <span class="lt-sep" aria-hidden="true">|</span>
+        <span class="lt-code" data-code="es">ES</span>
+      </button>
+      <a class="btn btn-primary" href="tel:+526386883284" data-en="Call Us" data-es="Ll&aacute;manos">Call Us</a>
+    </div>
+  </div>
+</header>
+<!-- =========================== END SHARED HEADER =========================== -->
+
+<main>
+
+<!-- =========================== VISIT HERO (compact, red, watermark) =========================== -->
+<section class="band band-dark hero-band hero-40 has-watermark">
+  <img class="watermark-medallion" src="assets/photos/dragon-medallion.jpg" alt="" aria-hidden="true" />
+  <div class="wrap" style="display:flex;flex-direction:column;align-items:center;text-align:center;gap:.9rem;">
+    <img class="medallion" src="assets/photos/dragon-medallion.jpg" width="64" height="64" alt="Dragon House gold dragon medallion" data-en="Dragon House gold dragon medallion" data-es="Medallon dorado del dragon de Dragon House" />
+    <h1 class="h-sec font-display" style="font-size:clamp(2rem,6vw,3rem);" data-en="Come See Us" data-es="Ven a Vernos">Come See Us</h1>
+    <p class="lead" data-en="Stop by for lunch or dinner, or pick up the phone and call. Either way, we will take good care of you." data-es="Pasa a comer o a cenar, o toma el tel&eacute;fono y ll&aacute;manos. De cualquier forma, te cuidaremos bien.">Stop by for lunch or dinner, or pick up the phone and call. Either way, we will take good care of you.</p>
+  </div>
+</section>
+
+<!-- =========================== INFO + MAP =========================== -->
+<section class="band band-cream">
+  <div class="wrap">
+    <div class="visit-grid">
+      <!-- Left: info list -->
+      <div class="info-list">
+        <div class="info-row reveal">
+          <svg class="ir-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+          <div>
+            <h3 data-en="Hours" data-es="Horario">Hours</h3>
+            <p data-en="Open daily, 12 PM to 9 PM." data-es="Abierto todos los d&iacute;as, 12 PM a 9 PM.">Open daily, 12 PM to 9 PM.</p>
+          </div>
+        </div>
+        <div class="info-row reveal" data-delay="1">
+          <svg class="ir-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 21s7-5.6 7-11a7 7 0 10-14 0c0 5.4 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+          <div>
+            <h3 data-en="Address" data-es="Direcci&oacute;n">Address</h3>
+            <p data-en="Cuauhtemoc 48, Centro, Puerto Penasco, Sonora." data-es="Cuauht&eacute;moc 48, Centro, Puerto Pe&ntilde;asco, Sonora.">Cuauhtemoc 48, Centro, Puerto Penasco, Sonora.</p>
+            <p class="ir-note" data-en="We are on Avenida Cuauhtemoc, between Calle Sonora and Melchor Ocampo." data-es="Estamos en Avenida Cuauht&eacute;moc, entre Calle Sonora y Melchor Ocampo.">We are on Avenida Cuauhtemoc, between Calle Sonora and Melchor Ocampo.</p>
+          </div>
+        </div>
+        <div class="info-row reveal" data-delay="2">
+          <svg class="ir-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.5.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.5.1.4 0 .8-.3 1l-2.2 2.3z"/></svg>
+          <div>
+            <h3 data-en="Phone" data-es="Tel&eacute;fono">Phone</h3>
+            <p><a class="phone-link font-display" href="tel:+526386883284">638 688 3284</a></p>
+            <div class="info-actions">
+              <a class="btn btn-primary" href="tel:+526386883284" data-en="Call Us" data-es="Ll&aacute;manos">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.5.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.5.1.4 0 .8-.3 1l-2.2 2.3z"/></svg>
+                <span data-en="Call Us" data-es="Ll&aacute;manos">Call Us</span>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="info-row reveal" data-delay="2">
+          <svg class="ir-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 7h11v8H3z"/><path d="M14 10h4l3 3v2h-7z"/><circle cx="6.5" cy="17.5" r="1.8"/><circle cx="17.5" cy="17.5" r="1.8"/></svg>
+          <div>
+            <h3 data-en="Delivery and payment" data-es="Domicilio y pago">Delivery and payment</h3>
+            <p data-en="Servicio a domicilio. Call us and we will bring your order to your door." data-es="Servicio a domicilio. Ll&aacute;manos y te llevamos tu orden hasta tu puerta.">Servicio a domicilio. Call us and we will bring your order to your door.</p>
+            <p class="ir-note" data-en="We accept cards." data-es="Aceptamos tarjetas.">We accept cards.</p>
+            <div class="pill-row" style="margin-top:.7rem;">
+              <span class="pill pill-lantern" data-en="Servicio a domicilio" data-es="Servicio a domicilio">Servicio a domicilio</span>
+              <span class="pill" data-en="Visa, Mastercard, Amex, Apple Pay" data-es="Visa, Mastercard, Amex, Apple Pay">Visa, Mastercard, Amex, Apple Pay</span>
+              <span class="pill" data-en="4.4 on Google" data-es="4.4 en Google">4.4 on Google</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Photo accent: the DRAGON HOUSE door decal (12 to 9, todos los dias) -->
+        <div class="visit-accent reveal" data-delay="2">
+          <div class="va-photo"><img src="assets/photos/hours.jpg" width="240" height="240" loading="lazy" alt="Dragon House door decal: open daily 12 to 9" data-en="Dragon House door decal: open daily 12 to 9" data-es="Calcoman&iacute;a de la puerta de Dragon House: abierto todos los d&iacute;as 12 a 21" /></div>
+          <p data-en="Look for the dragon on the door. Open every day, 12 to 9." data-es="Busca el drag&oacute;n en la puerta. Abierto todos los d&iacute;as, 12 a 21.">Look for the dragon on the door. Open every day, 12 to 9.</p>
+        </div>
+      </div>
+
+      <!-- Right: map + contact form -->
+      <div>
+        <div class="map-frame reveal" data-delay="1">
+          <iframe
+            title="Map to Dragon House, Cuauhtemoc 48, Centro, Puerto Penasco"
+            data-en-title="Map to Dragon House, Cuauhtemoc 48, Centro, Puerto Penasco"
+            data-es-title="Mapa a Dragon House, Cuauht&eacute;moc 48, Centro, Puerto Pe&ntilde;asco"
+            src="https://www.google.com/maps?q=Cuauhtemoc%2048,%20Centro,%2083550%20Puerto%20Pe%C3%B1asco,%20Sonora&output=embed"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+
+        <!-- Contact form: spec demo, non-functional. The buyer wires up an endpoint after purchase. -->
+        <div class="contact-card key-frame reveal" data-delay="2">
+          <h3 class="font-display" data-en="Send us a message" data-es="Mand&aacute;nos un mensaje">Send us a message</h3>
+          <p class="helper" data-en="Have a question or a big order coming up? Drop us a note and we will get back to you." data-es="&iquest;Tienes una pregunta o una orden grande? D&eacute;janos un mensaje y te respondemos.">Have a question or a big order coming up? Drop us a note and we will get back to you.</p>
+          <form id="contactForm" novalidate>
+            <div>
+              <label for="cf-name" data-en="Name" data-es="Nombre">Name</label>
+              <input id="cf-name" name="name" type="text" autocomplete="name" data-en-ph="Your name" data-es-ph="Tu nombre" placeholder="Your name" required />
+            </div>
+            <div>
+              <label for="cf-phone" data-en="Phone" data-es="Tel&eacute;fono">Phone</label>
+              <input id="cf-phone" name="phone" type="tel" autocomplete="tel" data-en-ph="Your phone" data-es-ph="Tu tel&eacute;fono" placeholder="Your phone" />
+            </div>
+            <div class="full">
+              <label for="cf-msg" data-en="Message" data-es="Mensaje">Message</label>
+              <textarea id="cf-msg" name="message" data-en-ph="How can we help?" data-es-ph="&iquest;C&oacute;mo te podemos ayudar?" placeholder="How can we help?"></textarea>
+            </div>
+            <div class="full">
+              <button class="btn btn-primary" type="submit" data-en="Send" data-es="Enviar">Send</button>
+            </div>
+          </form>
+          <div class="form-confirm" id="formConfirm" data-en="Thank you. Your message is on its way, and we will be in touch soon." data-es="Gracias. Tu mensaje va en camino y te contactaremos pronto.">Thank you. Your message is on its way, and we will be in touch soon.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- =========================================================================
+     SHARED FOOTER (identical on every page)
+     ========================================================================= -->
+<footer class="site-footer">
+  <div class="greek-strip" aria-hidden="true"></div>
+  <div class="wrap footer-inner">
+    <div class="footer-brand">
+      <img class="medallion" src="assets/photos/dragon-medallion.jpg" width="52" height="52" alt="Dragon House gold dragon medallion" data-en="Dragon House gold dragon medallion" data-es="Medallon dorado del dragon de Dragon House" />
+      <span class="fb-word font-display">Dragon House</span>
+      <span class="fb-sub">Cocina China y Cantonesa</span>
+    </div>
+    <p class="footer-tag"
+       data-en="Authentic Chinese and Cantonese kitchen in the heart of Puerto Penasco. Come hungry, leave family."
+       data-es="Cocina china y cantonesa aut&eacute;ntica en el coraz&oacute;n de Puerto Pe&ntilde;asco. Llega con hambre, sal como familia.">Authentic Chinese and Cantonese kitchen in the heart of Puerto Penasco. Come hungry, leave family.</p>
+
+    <div class="footer-cols">
+      <div class="footer-col">
+        <h4 data-en="Visit" data-es="Vis&iacute;tanos">Visit</h4>
+        <p data-en="Cuauhtemoc 48, Centro" data-es="Cuauht&eacute;moc 48, Centro">Cuauhtemoc 48, Centro</p>
+        <p>83550 Puerto Pe&ntilde;asco, Sonora</p>
+        <p data-en="Between Calle Sonora and Melchor Ocampo" data-es="Entre Calle Sonora y Melchor Ocampo">Between Calle Sonora and Melchor Ocampo</p>
+      </div>
+      <div class="footer-col">
+        <h4 data-en="Hours" data-es="Horario">Hours</h4>
+        <p data-en="Open daily" data-es="Abierto todos los d&iacute;as">Open daily</p>
+        <p data-en="12:00 PM to 9:00 PM" data-es="12:00 a 21:00">12:00 PM to 9:00 PM</p>
+        <div class="footer-pills pill-row">
+          <span class="pill pill-lantern" data-en="Delivery" data-es="A domicilio">Delivery</span>
+          <span class="pill" data-en="Cards" data-es="Tarjetas">Cards</span>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4 data-en="Contact" data-es="Contacto">Contact</h4>
+        <p><a class="fc-phone font-display" href="tel:+526386883284">638 688 3284</a></p>
+        <p data-en="Servicio a domicilio (delivery)" data-es="Servicio a domicilio">Servicio a domicilio (delivery)</p>
+        <p data-en="Cards: Visa, Mastercard, Amex, Apple Pay" data-es="Tarjetas: Visa, Mastercard, Amex, Apple Pay">Cards: Visa, Mastercard, Amex, Apple Pay</p>
+        <!-- owner-confirm: add real FB/IG handles if any -->
+        <div class="footer-social">
+          <a href="https://www.facebook.com/search/top?q=Dragon%20House%20Puerto%20Penasco" target="_blank" rel="noopener" aria-label="Find Dragon House on Facebook" data-en-label="Find Dragon House on Facebook" data-es-label="Encu&eacute;ntranos en Facebook">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14 9h3l.5-3H14V4.5c0-.9.3-1.5 1.6-1.5H17V.3C16.6.2 15.6 0 14.5 0 12 0 10.5 1.4 10.5 4.1V6H8v3h2.5v9H14z"/></svg>
+            <span>Facebook</span>
+          </a>
+          <a href="https://www.google.com/maps/search/Dragon+House+Cuauhtemoc+48+Puerto+Penasco" target="_blank" rel="noopener" aria-label="Find Dragon House on Google" data-en-label="Find Dragon House on Google" data-es-label="Encu&eacute;ntranos en Google">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 21s7-5.6 7-11a7 7 0 10-14 0c0 5.4 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+            <span data-en="Reviews" data-es="Rese&ntilde;as">Reviews</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; <span id="year"></span> Dragon House &middot; <span data-en="Site by" data-es="Sitio por">Site by</span> <a href="index.html">NeonFrame</a></p>
+    </div>
+  </div>
+</footer>
+<!-- =========================== END SHARED FOOTER =========================== -->
+
+<script src="app.js"></script>
+</body>
+</html>

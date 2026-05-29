@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<!--
+  Dragon House GALLERY page (Galeria). The full real photo set in a gold
+  greek-key masonry grid with a keyboard-accessible lightbox. The raw square
+  dragon-medallion.jpg is NOT in the grid (it lives as the circular emblem only).
+  Shared HEADER + FOOTER identical to the other pages. No em-dashes, no en-dashes.
+-->
+
+<title>Gallery | Dragon House, Puerto Penasco</title>
+<meta name="description" content="A look inside Dragon House: our storefront, our dining room, the red lanterns, the jade Buddha, the lucky cat, and the details that make it ours." />
+
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Gallery | Dragon House, Puerto Penasco" />
+<meta property="og:description" content="A look inside Dragon House: the storefront, the dining room, the red lanterns, and the little details that make it ours." />
+<meta property="og:image" content="assets/photos/interior-seating.jpg" />
+<meta property="og:url" content="https://neonframewebdev.github.io/dragon-house/gallery.html" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="theme-color" content="#B11E1E" />
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23B11E1E'/%3E%3Ccircle cx='16' cy='16' r='11' fill='none' stroke='%23C9A24B' stroke-width='2'/%3E%3Cpath d='M11 12 L11 20 L13 20 L13 14 L19 14 L19 20 L21 20 L21 12 Z' fill='%23C9A24B'/%3E%3C/svg%3E" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Nunito+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+
+<!-- =========================== LOADER =========================== -->
+<div id="loader" aria-hidden="true">
+  <div class="loader-inner">
+    <img class="loader-medallion" src="assets/photos/dragon-medallion.jpg" width="84" height="84" alt="" />
+    <div class="loader-bar"><i></i></div>
+    <div class="loader-word">DRAGON HOUSE</div>
+  </div>
+</div>
+
+<!-- =========================================================================
+     SHARED HEADER (identical on every page; only the .is-active link changes)
+     ========================================================================= -->
+<header class="site-header">
+  <nav class="nav" id="nav" aria-label="Primary">
+    <div class="wrap nav-inner">
+      <a class="brand-lockup" href="index.html" aria-label="Dragon House home" data-en-label="Dragon House home" data-es-label="Dragon House inicio">
+        <img class="medallion" src="assets/photos/dragon-medallion.jpg" width="44" height="44" alt="Dragon House gold dragon medallion" data-en="Dragon House gold dragon medallion" data-es="Medallon dorado del dragon de Dragon House" />
+        <span class="brand-text">
+          <span class="bt-main font-display">Dragon House</span>
+          <span class="bt-sub">Cocina China y Cantonesa</span>
+        </span>
+      </a>
+
+      <div class="nav-links">
+        <a href="index.html" data-en="Home" data-es="Inicio">Home</a>
+        <a href="menu.html" data-en="Menu" data-es="Men&uacute;">Menu</a>
+        <a href="about.html" data-en="About" data-es="Nosotros">About</a>
+        <a href="gallery.html" class="is-active" data-en="Gallery" data-es="Galer&iacute;a">Gallery</a>
+        <a href="visit.html" data-en="Visit" data-es="Vis&iacute;tanos">Visit</a>
+      </div>
+
+      <div class="nav-right">
+        <button class="lang-toggle" id="langToggle" type="button" aria-label="Switch language to Spanish">
+          <span class="lt-code is-active" data-code="en">EN</span>
+          <span class="lt-sep" aria-hidden="true">|</span>
+          <span class="lt-code" data-code="es">ES</span>
+        </button>
+        <a class="btn btn-primary nav-cta" href="tel:+526386883284" data-en="Call Us" data-es="Ll&aacute;manos">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.5.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.5.1.4 0 .8-.3 1l-2.2 2.3z"/></svg>
+          <span data-en="Call Us" data-es="Ll&aacute;manos">Call Us</span>
+        </a>
+        <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="navPanel" aria-label="Open menu" data-en-label="Open menu" data-es-label="Abrir men&uacute;">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- 3px gold greek-key strip along the bottom edge of the header -->
+  <div class="greek-strip" aria-hidden="true"></div>
+
+  <!-- Mobile slide-down panel -->
+  <div class="nav-panel" id="navPanel">
+    <a class="np-link" href="index.html" data-en="Home" data-es="Inicio">Home</a>
+    <a class="np-link" href="menu.html" data-en="Menu" data-es="Men&uacute;">Menu</a>
+    <a class="np-link" href="about.html" data-en="About" data-es="Nosotros">About</a>
+    <a class="np-link is-active" href="gallery.html" data-en="Gallery" data-es="Galer&iacute;a">Gallery</a>
+    <a class="np-link" href="visit.html" data-en="Visit" data-es="Vis&iacute;tanos">Visit</a>
+    <div class="np-foot">
+      <button class="lang-toggle" id="langTogglePanel" type="button" aria-label="Switch language to Spanish">
+        <span class="lt-code is-active" data-code="en">EN</span>
+        <span class="lt-sep" aria-hidden="true">|</span>
+        <span class="lt-code" data-code="es">ES</span>
+      </button>
+      <a class="btn btn-primary" href="tel:+526386883284" data-en="Call Us" data-es="Ll&aacute;manos">Call Us</a>
+    </div>
+  </div>
+</header>
+<!-- =========================== END SHARED HEADER =========================== -->
+
+<main>
+
+<!-- =========================== GALLERY HERO (very compact, red) =========================== -->
+<section class="band band-dark hero-band hero-30">
+  <div class="wrap" style="display:flex;flex-direction:column;align-items:center;text-align:center;gap:.9rem;">
+    <img class="medallion" src="assets/photos/dragon-medallion.jpg" width="64" height="64" alt="Dragon House gold dragon medallion" data-en="Dragon House gold dragon medallion" data-es="Medallon dorado del dragon de Dragon House" />
+    <h1 class="h-sec font-display" style="font-size:clamp(2rem,6vw,3rem);" data-en="Gallery" data-es="Galer&iacute;a">Gallery</h1>
+    <p class="lead" data-en="A look inside Dragon House, our storefront, our dining room, and the little details that make it ours." data-es="Un vistazo dentro de Dragon House, nuestra fachada, nuestro comedor y los peque&ntilde;os detalles que lo hacen nuestro.">A look inside Dragon House, our storefront, our dining room, and the little details that make it ours.</p>
+  </div>
+</section>
+
+<!-- =========================== PHOTO GRID =========================== -->
+<section class="band band-cream">
+  <div class="wrap">
+    <div class="gallery-grid">
+      <div class="g-item reveal">
+        <div class="g-fig" tabindex="0" role="button" data-lightbox data-full="assets/photos/exterior.jpg" data-cap="Dragon House storefront with the neon OPEN sign" data-en-label="View: storefront with the neon OPEN sign" data-es-label="Ver: fachada con el letrero ne&oacute;n de OPEN" aria-label="View storefront photo">
+          <img src="assets/photos/exterior.jpg" width="1200" height="800" loading="lazy" alt="Dragon House storefront with the neon OPEN sign" data-en="Dragon House storefront with the neon OPEN sign" data-es="Fachada de Dragon House con el letrero ne&oacute;n de OPEN" />
+          <span class="g-cap" data-en="The storefront" data-es="La fachada">The storefront</span>
+        </div>
+      </div>
+      <div class="g-item reveal">
+        <div class="g-fig" tabindex="0" role="button" data-lightbox data-full="assets/photos/interior-wide.jpg" data-cap="Dining room with red lanterns and the gold fortune mural" data-en-label="View: dining room with red lanterns" data-es-label="Ver: comedor con faroles rojos" aria-label="View dining room photo">
+          <img src="assets/photos/interior-wide.jpg" width="1200" height="800" loading="lazy" alt="Dining room with red lanterns and the gold fortune mural" data-en="Dining room with red lanterns and the gold fortune mural" data-es="Comedor con faroles rojos y el mural dorado de la fortuna" />
+          <span class="g-cap" data-en="The dining room" data-es="El comedor">The dining room</span>
+        </div>
+      </div>
+      <div class="g-item reveal">
+        <div class="g-fig jade" tabindex="0" role="button" data-lightbox data-full="assets/photos/buddha.jpg" data-cap="The jade laughing Buddha" data-en-label="View: jade laughing Buddha" data-es-label="Ver: Buda dorado que r&iacute;e" aria-label="View jade Buddha photo">
+          <img src="assets/photos/buddha.jpg" width="1000" height="1000" loading="lazy" alt="The jade laughing Buddha" data-en="The jade laughing Buddha" data-es="El Buda dorado que r&iacute;e" />
+          <span class="g-jade" aria-hidden="true"></span>
+          <span class="g-cap" data-en="The laughing Buddha" data-es="El Buda que r&iacute;e">The laughing Buddha</span>
+        </div>
+      </div>
+      <div class="g-item reveal">
+        <div class="g-fig" tabindex="0" role="button" data-lightbox data-full="assets/photos/exterior-2.jpg" data-cap="Another look at the storefront" data-en-label="View: another look at the storefront" data-es-label="Ver: otra vista de la fachada" aria-label="View storefront photo two">
+          <img src="assets/photos/exterior-2.jpg" width="1200" height="800" loading="lazy" alt="Another look at the storefront" data-en="Another look at the storefront" data-es="Otra vista de la fachada" />
+          <span class="g-cap" data-en="On Cuauhtemoc" data-es="Sobre Cuauht&eacute;moc">On Cuauhtemoc</span>
+        </div>
+      </div>
+      <div class="g-item reveal">
+        <div class="g-fig" tabindex="0" role="button" data-lightbox data-full="assets/photos/lucky-cat.jpg" data-cap="The gold lucky cat, maneki-neko" data-en-label="View: gold lucky cat" data-es-label="Ver: gato de la suerte dorado" aria-label="View lucky cat photo">
+          <img src="assets/photos/lucky-cat.jpg" width="1000" height="1000" loading="lazy" alt="The gold lucky cat, maneki-neko" data-en="The gold lucky cat, maneki-neko" data-es="El gato de la suerte dorado, maneki-neko" />
+          <span class="g-cap" data-en="The lucky cat" data-es="El gato de la suerte">The lucky cat</span>
+        </div>
+      </div>
+      <div class="g-item reveal">
+        <div class="g-fig" tabindex="0" role="button" data-lightbox data-full="assets/photos/interior-seating.jpg" data-cap="Booths and tables under the lanterns" data-en-label="View: booths and tables under the lanterns" data-es-label="Ver: mesas bajo los faroles" aria-label="View seating photo">
+          <img src="assets/photos/interior-seating.jpg" width="1200" height="800" loading="lazy" alt="Booths and tables under the lanterns" data-en="Booths and tables under the lanterns" data-es="Mesas y bancos bajo los faroles" />
+          <span class="g-cap" data-en="Pull up a chair" data-es="Toma asiento">Pull up a chair</span>
+        </div>
+      </div>
+      <div class="g-item reveal">
+        <div class="g-fig" tabindex="0" role="button" data-lightbox data-full="assets/photos/counter.jpg" data-cap="The counter and the fortune motifs" data-en-label="View: the counter and fortune motifs" data-es-label="Ver: el mostrador y los motivos de la fortuna" aria-label="View counter photo">
+          <img src="assets/photos/counter.jpg" width="1200" height="800" loading="lazy" alt="The counter and the fortune motifs" data-en="The counter and the fortune motifs" data-es="El mostrador y los motivos de la fortuna" />
+          <span class="g-cap" data-en="The counter" data-es="El mostrador">The counter</span>
+        </div>
+      </div>
+      <div class="g-item reveal">
+        <div class="g-fig" tabindex="0" role="button" data-lightbox data-full="assets/photos/interior-seating-2.jpg" data-cap="Red lanterns and booths" data-en-label="View: red lanterns and booths" data-es-label="Ver: faroles rojos y mesas" aria-label="View seating photo two">
+          <img src="assets/photos/interior-seating-2.jpg" width="1200" height="800" loading="lazy" alt="Red lanterns and booths" data-en="Red lanterns and booths" data-es="Faroles rojos y mesas" />
+          <span class="g-cap" data-en="Lanterns aglow" data-es="Faroles encendidos">Lanterns aglow</span>
+        </div>
+      </div>
+      <div class="g-item reveal">
+        <div class="g-fig" tabindex="0" role="button" data-lightbox data-full="assets/photos/exterior-3.jpg" data-cap="The storefront from the street" data-en-label="View: the storefront from the street" data-es-label="Ver: la fachada desde la calle" aria-label="View storefront photo three">
+          <img src="assets/photos/exterior-3.jpg" width="1200" height="800" loading="lazy" alt="The storefront from the street" data-en="The storefront from the street" data-es="La fachada desde la calle" />
+          <span class="g-cap" data-en="Find us in the Centro" data-es="Encu&eacute;ntranos en el Centro">Find us in the Centro</span>
+        </div>
+      </div>
+      <div class="g-item reveal">
+        <div class="g-fig" tabindex="0" role="button" data-lightbox data-full="assets/photos/hours.jpg" data-cap="Our door: Dragon House, open daily 12 to 9" data-en-label="View: door decal, open daily 12 to 9" data-es-label="Ver: calcoman&iacute;a de la puerta, abierto 12 a 21" aria-label="View hours decal photo">
+          <img src="assets/photos/hours.jpg" width="1000" height="1000" loading="lazy" alt="Our door: Dragon House, open daily 12 to 9" data-en="Our door: Dragon House, open daily 12 to 9" data-es="Nuestra puerta: Dragon House, abierto todos los d&iacute;as 12 a 21" />
+          <span class="g-cap" data-en="Open daily 12 to 9" data-es="Abierto 12 a 21">Open daily 12 to 9</span>
+        </div>
+      </div>
+      <!-- Menu teaser tile linking to the menu page (uses the real menu cover) -->
+      <div class="g-item reveal">
+        <a class="g-fig is-link" href="menu.html" aria-label="See the full menu" data-en-label="See the full menu" data-es-label="Ver el men&uacute; completo">
+          <img src="assets/photos/menu-cover.jpg" width="900" height="1200" loading="lazy" alt="Dragon House printed menu cover" data-en="Dragon House printed menu cover" data-es="Portada del men&uacute; impreso de Dragon House" />
+          <span class="g-link-badge font-display" data-en="See the menu" data-es="Ver el men&uacute;">See the menu</span>
+          <span class="g-cap" data-en="Our printed menu" data-es="Nuestro men&uacute; impreso">Our printed menu</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- greek-key divider -->
+<div class="key-divider" aria-hidden="true">
+  <span class="rule"></span>
+  <span class="dot"></span>
+  <span class="rule right"></span>
+</div>
+
+<!-- =========================== CTA STRIP =========================== -->
+<section class="band band-red has-watermark cta-strip">
+  <img class="watermark-medallion" src="assets/photos/dragon-medallion.jpg" alt="" aria-hidden="true" />
+  <div class="wrap">
+    <span class="kicker reveal" data-en="Hungry?" data-es="&iquest;Con hambre?">Hungry?</span>
+    <h2 class="h-sec reveal" data-delay="1" data-en="See you soon." data-es="Nos vemos pronto.">See you soon.</h2>
+    <div class="cs-ctas reveal" data-delay="1">
+      <a class="btn btn-primary" href="menu.html" data-en="See the Menu" data-es="Ver el Men&uacute;">See the Menu</a>
+      <a class="btn btn-ghost" href="tel:+526386883284" data-en="Call Us" data-es="Ll&aacute;manos">Call Us</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- =========================================================================
+     SHARED FOOTER (identical on every page)
+     ========================================================================= -->
+<footer class="site-footer">
+  <div class="greek-strip" aria-hidden="true"></div>
+  <div class="wrap footer-inner">
+    <div class="footer-brand">
+      <img class="medallion" src="assets/photos/dragon-medallion.jpg" width="52" height="52" alt="Dragon House gold dragon medallion" data-en="Dragon House gold dragon medallion" data-es="Medallon dorado del dragon de Dragon House" />
+      <span class="fb-word font-display">Dragon House</span>
+      <span class="fb-sub">Cocina China y Cantonesa</span>
+    </div>
+    <p class="footer-tag"
+       data-en="Authentic Chinese and Cantonese kitchen in the heart of Puerto Penasco. Come hungry, leave family."
+       data-es="Cocina china y cantonesa aut&eacute;ntica en el coraz&oacute;n de Puerto Pe&ntilde;asco. Llega con hambre, sal como familia.">Authentic Chinese and Cantonese kitchen in the heart of Puerto Penasco. Come hungry, leave family.</p>
+
+    <div class="footer-cols">
+      <div class="footer-col">
+        <h4 data-en="Visit" data-es="Vis&iacute;tanos">Visit</h4>
+        <p data-en="Cuauhtemoc 48, Centro" data-es="Cuauht&eacute;moc 48, Centro">Cuauhtemoc 48, Centro</p>
+        <p>83550 Puerto Pe&ntilde;asco, Sonora</p>
+        <p data-en="Between Calle Sonora and Melchor Ocampo" data-es="Entre Calle Sonora y Melchor Ocampo">Between Calle Sonora and Melchor Ocampo</p>
+      </div>
+      <div class="footer-col">
+        <h4 data-en="Hours" data-es="Horario">Hours</h4>
+        <p data-en="Open daily" data-es="Abierto todos los d&iacute;as">Open daily</p>
+        <p data-en="12:00 PM to 9:00 PM" data-es="12:00 a 21:00">12:00 PM to 9:00 PM</p>
+        <div class="footer-pills pill-row">
+          <span class="pill pill-lantern" data-en="Delivery" data-es="A domicilio">Delivery</span>
+          <span class="pill" data-en="Cards" data-es="Tarjetas">Cards</span>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4 data-en="Contact" data-es="Contacto">Contact</h4>
+        <p><a class="fc-phone font-display" href="tel:+526386883284">638 688 3284</a></p>
+        <p data-en="Servicio a domicilio (delivery)" data-es="Servicio a domicilio">Servicio a domicilio (delivery)</p>
+        <p data-en="Cards: Visa, Mastercard, Amex, Apple Pay" data-es="Tarjetas: Visa, Mastercard, Amex, Apple Pay">Cards: Visa, Mastercard, Amex, Apple Pay</p>
+        <!-- owner-confirm: add real FB/IG handles if any -->
+        <div class="footer-social">
+          <a href="https://www.facebook.com/search/top?q=Dragon%20House%20Puerto%20Penasco" target="_blank" rel="noopener" aria-label="Find Dragon House on Facebook" data-en-label="Find Dragon House on Facebook" data-es-label="Encu&eacute;ntranos en Facebook">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14 9h3l.5-3H14V4.5c0-.9.3-1.5 1.6-1.5H17V.3C16.6.2 15.6 0 14.5 0 12 0 10.5 1.4 10.5 4.1V6H8v3h2.5v9H14z"/></svg>
+            <span>Facebook</span>
+          </a>
+          <a href="https://www.google.com/maps/search/Dragon+House+Cuauhtemoc+48+Puerto+Penasco" target="_blank" rel="noopener" aria-label="Find Dragon House on Google" data-en-label="Find Dragon House on Google" data-es-label="Encu&eacute;ntranos en Google">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 21s7-5.6 7-11a7 7 0 10-14 0c0 5.4 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+            <span data-en="Reviews" data-es="Rese&ntilde;as">Reviews</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; <span id="year"></span> Dragon House &middot; <span data-en="Site by" data-es="Sitio por">Site by</span> <a href="index.html">NeonFrame</a></p>
+    </div>
+  </div>
+</footer>
+<!-- =========================== END SHARED FOOTER =========================== -->
+
+<!-- Lightbox (shared markup) -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Photo viewer" data-en-label="Photo viewer" data-es-label="Visor de fotos">
+  <button type="button" class="lightbox-close" data-lb-close aria-label="Close" data-en-label="Close" data-es-label="Cerrar">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+  </button>
+  <button type="button" class="lightbox-nav prev" data-lb-prev aria-label="Previous photo" data-en-label="Previous photo" data-es-label="Foto anterior">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg>
+  </button>
+  <button type="button" class="lightbox-nav next" data-lb-next aria-label="Next photo" data-en-label="Next photo" data-es-label="Siguiente foto">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
+  </button>
+  <figure class="lightbox-figure">
+    <img class="lb-img" src="" alt="" />
+    <figcaption class="lightbox-cap"></figcaption>
+  </figure>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>

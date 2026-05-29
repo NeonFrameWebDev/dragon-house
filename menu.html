@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<!--
+  Dragon House MENU page. Full typed bilingual menu in gold greek-key sections,
+  PLUS the three real printed-menu photos in gold greek-key frames with a lightbox.
+  All prices MXN, transcribed exactly from the menu photos. The Botanas combo
+  price is NOT legible on the photo, so it shows "consultar / ask in store" with
+  an owner-confirm flag. No invented prices. No em-dashes, no en-dashes.
+  Shared HEADER + FOOTER identical to the other pages (only the active link changes).
+-->
+
+<title>Menu | Dragon House, Puerto Penasco</title>
+<meta name="description" content="The full Dragon House menu. Comida Express for one, Comida Corrida for two, Botanas, and Bebidas. Prices in pesos (MXN). Dine in or servicio a domicilio." />
+
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Menu | Dragon House, Puerto Penasco" />
+<meta property="og:description" content="Comida Express for one, Comida Corrida for two, Botanas and Bebidas. Prices in pesos (MXN). Dine in or delivery." />
+<meta property="og:image" content="assets/photos/menu-cover.jpg" />
+<meta property="og:url" content="https://neonframewebdev.github.io/dragon-house/menu.html" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="theme-color" content="#B11E1E" />
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23B11E1E'/%3E%3Ccircle cx='16' cy='16' r='11' fill='none' stroke='%23C9A24B' stroke-width='2'/%3E%3Cpath d='M11 12 L11 20 L13 20 L13 14 L19 14 L19 20 L21 20 L21 12 Z' fill='%23C9A24B'/%3E%3C/svg%3E" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Nunito+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+
+<!-- =========================== LOADER =========================== -->
+<div id="loader" aria-hidden="true">
+  <div class="loader-inner">
+    <img class="loader-medallion" src="assets/photos/dragon-medallion.jpg" width="84" height="84" alt="" />
+    <div class="loader-bar"><i></i></div>
+    <div class="loader-word">DRAGON HOUSE</div>
+  </div>
+</div>
+
+<!-- =========================================================================
+     SHARED HEADER (identical on every page; only the .is-active link changes)
+     ========================================================================= -->
+<header class="site-header">
+  <nav class="nav" id="nav" aria-label="Primary">
+    <div class="wrap nav-inner">
+      <a class="brand-lockup" href="index.html" aria-label="Dragon House home" data-en-label="Dragon House home" data-es-label="Dragon House inicio">
+        <img class="medallion" src="assets/photos/dragon-medallion.jpg" width="44" height="44" alt="Dragon House gold dragon medallion" data-en="Dragon House gold dragon medallion" data-es="Medallon dorado del dragon de Dragon House" />
+        <span class="brand-text">
+          <span class="bt-main font-display">Dragon House</span>
+          <span class="bt-sub">Cocina China y Cantonesa</span>
+        </span>
+      </a>
+
+      <div class="nav-links">
+        <a href="index.html" data-en="Home" data-es="Inicio">Home</a>
+        <a href="menu.html" class="is-active" data-en="Menu" data-es="Men&uacute;">Menu</a>
+        <a href="about.html" data-en="About" data-es="Nosotros">About</a>
+        <a href="gallery.html" data-en="Gallery" data-es="Galer&iacute;a">Gallery</a>
+        <a href="visit.html" data-en="Visit" data-es="Vis&iacute;tanos">Visit</a>
+      </div>
+
+      <div class="nav-right">
+        <button class="lang-toggle" id="langToggle" type="button" aria-label="Switch language to Spanish">
+          <span class="lt-code is-active" data-code="en">EN</span>
+          <span class="lt-sep" aria-hidden="true">|</span>
+          <span class="lt-code" data-code="es">ES</span>
+        </button>
+        <a class="btn btn-primary nav-cta" href="tel:+526386883284" data-en="Call Us" data-es="Ll&aacute;manos">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.5.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.5.1.4 0 .8-.3 1l-2.2 2.3z"/></svg>
+          <span data-en="Call Us" data-es="Ll&aacute;manos">Call Us</span>
+        </a>
+        <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="navPanel" aria-label="Open menu" data-en-label="Open menu" data-es-label="Abrir men&uacute;">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- 3px gold greek-key strip along the bottom edge of the header -->
+  <div class="greek-strip" aria-hidden="true"></div>
+
+  <!-- Mobile slide-down panel -->
+  <div class="nav-panel" id="navPanel">
+    <a class="np-link" href="index.html" data-en="Home" data-es="Inicio">Home</a>
+    <a class="np-link is-active" href="menu.html" data-en="Menu" data-es="Men&uacute;">Menu</a>
+    <a class="np-link" href="about.html" data-en="About" data-es="Nosotros">About</a>
+    <a class="np-link" href="gallery.html" data-en="Gallery" data-es="Galer&iacute;a">Gallery</a>
+    <a class="np-link" href="visit.html" data-en="Visit" data-es="Vis&iacute;tanos">Visit</a>
+    <div class="np-foot">
+      <button class="lang-toggle" id="langTogglePanel" type="button" aria-label="Switch language to Spanish">
+        <span class="lt-code is-active" data-code="en">EN</span>
+        <span class="lt-sep" aria-hidden="true">|</span>
+        <span class="lt-code" data-code="es">ES</span>
+      </button>
+      <a class="btn btn-primary" href="tel:+526386883284" data-en="Call Us" data-es="Ll&aacute;manos">Call Us</a>
+    </div>
+  </div>
+</header>
+<!-- =========================== END SHARED HEADER =========================== -->
+
+<main>
+
+<!-- =========================== MENU HERO (compact, red to black) =========================== -->
+<section class="band band-dark hero-band">
+  <div class="wrap" style="display:flex;flex-direction:column;align-items:center;text-align:center;gap:.9rem;">
+    <img class="medallion" src="assets/photos/dragon-medallion.jpg" width="64" height="64" alt="Dragon House gold dragon medallion" data-en="Dragon House gold dragon medallion" data-es="Medallon dorado del dragon de Dragon House" />
+    <h1 class="h-sec font-display" style="font-size:clamp(2rem,6vw,3rem);" data-en="Menu" data-es="Men&uacute;">Menu</h1>
+    <p class="lead" data-en="Prices in Mexican pesos (MXN). Dine in or servicio a domicilio." data-es="Precios en pesos mexicanos (MXN). Para comer aqu&iacute; o servicio a domicilio.">Prices in Mexican pesos (MXN). Dine in or servicio a domicilio.</p>
+    <nav class="menu-chips" aria-label="Menu categories" data-en-label="Menu categories" data-es-label="Categor&iacute;as del men&uacute;">
+      <a class="menu-chip" href="#express" data-en="Comida Express" data-es="Comida Express">Comida Express</a>
+      <a class="menu-chip" href="#corrida" data-en="Comida Corrida" data-es="Comida Corrida">Comida Corrida</a>
+      <a class="menu-chip" href="#botanas" data-en="Botanas" data-es="Botanas">Botanas</a>
+      <a class="menu-chip" href="#bebidas" data-en="Bebidas" data-es="Bebidas">Bebidas</a>
+    </nav>
+  </div>
+</section>
+
+<!-- =========================== PRINTED-MENU SHOWCASE =========================== -->
+<section class="band band-cream">
+  <div class="wrap">
+    <span class="kicker reveal" data-en="The real thing" data-es="El original">The real thing</span>
+    <h2 class="h-sec reveal" data-delay="1" data-en="Our printed menu" data-es="Nuestro men&uacute; impreso">Our printed menu</h2>
+    <p class="lead reveal" data-delay="1" data-en="Here are our real menu pages. The full typed version below is the readable source." data-es="Aqu&iacute; est&aacute;n nuestras p&aacute;ginas reales. La versi&oacute;n escrita de abajo es la f&aacute;cil de leer.">Here are our real menu pages. The full typed version below is the readable source.</p>
+    <div class="printed-grid">
+      <button type="button" class="printed-frame reveal" data-delay="1" data-lightbox data-full="assets/photos/menu-cover.jpg" data-cap="Dragon House menu cover" data-en-label="Open menu cover photo" data-es-label="Abrir foto de la portada del men&uacute;" aria-label="Open menu cover photo">
+        <img src="assets/photos/menu-cover.jpg" width="900" height="1200" loading="lazy" alt="Dragon House printed menu cover" data-en="Dragon House printed menu cover" data-es="Portada del men&uacute; impreso de Dragon House" />
+        <span class="pf-zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3M11 8v6M8 11h6"/></svg></span>
+      </button>
+      <button type="button" class="printed-frame reveal" data-delay="2" data-lightbox data-full="assets/photos/menu-express-1.jpg" data-cap="Comida Express menu page" data-en-label="Open Comida Express menu page" data-es-label="Abrir p&aacute;gina de Comida Express" aria-label="Open Comida Express menu page">
+        <img src="assets/photos/menu-express-1.jpg" width="900" height="1200" loading="lazy" alt="Comida Express printed menu page" data-en="Comida Express printed menu page" data-es="P&aacute;gina impresa de Comida Express" />
+        <span class="pf-zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3M11 8v6M8 11h6"/></svg></span>
+      </button>
+      <button type="button" class="printed-frame reveal" data-delay="3" data-lightbox data-full="assets/photos/menu-combos-2.jpg" data-cap="Combos menu page" data-en-label="Open combos menu page" data-es-label="Abrir p&aacute;gina de combinados" aria-label="Open combos menu page">
+        <img src="assets/photos/menu-combos-2.jpg" width="900" height="1200" loading="lazy" alt="Combos printed menu page" data-en="Combos printed menu page" data-es="P&aacute;gina impresa de combinados" />
+        <span class="pf-zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3M11 8v6M8 11h6"/></svg></span>
+      </button>
+    </div>
+    <p class="printed-cap" data-en="Our printed menu" data-es="Nuestro men&uacute; impreso">Our printed menu</p>
+  </div>
+</section>
+
+<!-- greek-key divider -->
+<div class="key-divider" aria-hidden="true">
+  <span class="rule"></span>
+  <span class="dot"></span>
+  <span class="rule right"></span>
+</div>
+
+<!-- =========================== TYPED MENU =========================== -->
+<section class="band band-cream-soft" style="padding-top:0;">
+  <div class="wrap">
+    <p class="lead reveal" style="margin-bottom:1rem;"
+       data-en="Here is our full menu. Comida Express is built for one, Comida Corrida is built for two, and everything comes generous and made to share. Prices are in pesos (MXN). Dine in or call to order, we deliver too."
+       data-es="Aqu&iacute; est&aacute; nuestro men&uacute; completo. La Comida Express es para una persona, la Comida Corrida es para dos, y todo llega generoso y hecho para compartir. Los precios est&aacute;n en pesos (MXN). Come aqu&iacute; o llama para ordenar, tambi&eacute;n tenemos servicio a domicilio.">Here is our full menu. Comida Express is built for one, Comida Corrida is built for two, and everything comes generous and made to share. Prices are in pesos (MXN). Dine in or call to order, we deliver too.</p>
+
+    <!-- ===== COMIDA EXPRESS (for one) ===== -->
+    <section class="menu-cat key-frame reveal" id="express">
+      <div class="menu-cat-head">
+        <h2 class="font-display" data-en="Comida Express (for one)" data-es="Comida Express (para 1 persona)">Comida Express (for one)</h2>
+        <span class="mxn">MXN</span>
+      </div>
+      <div class="menu-list">
+        <div class="menu-row">
+          <span class="mr-no font-display">1</span>
+          <span class="mr-body">
+            <span class="mr-name">Chun Kung, arroz frito, chop suey con pollo, carnitas coloradas</span>
+            <span class="mr-gloss" data-en="Spring roll, fried rice, chicken chop suey, red roast pork" data-es="">Spring roll, fried rice, chicken chop suey, red roast pork</span>
+          </span>
+          <span class="mr-price font-display">$160</span>
+        </div>
+        <div class="menu-row">
+          <span class="mr-no font-display">2</span>
+          <span class="mr-body">
+            <span class="mr-name">Chun Kung, arroz frito, brocoli con res, carnitas coloradas</span>
+            <span class="mr-gloss" data-en="Spring roll, fried rice, beef with broccoli, red roast pork" data-es="">Spring roll, fried rice, beef with broccoli, red roast pork</span>
+          </span>
+          <span class="mr-price font-display">$180</span>
+        </div>
+        <div class="menu-row">
+          <span class="mr-no font-display">3</span>
+          <span class="mr-body">
+            <span class="mr-name">Chun Kung, arroz frito, pollo con pina, carnitas coloradas</span>
+            <span class="mr-gloss" data-en="Spring roll, fried rice, pineapple chicken, red roast pork" data-es="">Spring roll, fried rice, pineapple chicken, red roast pork</span>
+          </span>
+          <span class="mr-price font-display">$180</span>
+        </div>
+        <div class="menu-row">
+          <span class="mr-no font-display">4</span>
+          <span class="mr-body">
+            <span class="mr-name">Chun Kung, arroz frito, pollo cantones, carnitas coloradas</span>
+            <span class="mr-gloss" data-en="Spring roll, fried rice, Cantonese chicken, red roast pork" data-es="">Spring roll, fried rice, Cantonese chicken, red roast pork</span>
+          </span>
+          <span class="mr-price font-display">$180</span>
+        </div>
+        <div class="menu-row">
+          <span class="mr-no font-display">5</span>
+          <span class="mr-body">
+            <span class="mr-name">Chun Kung, arroz frito, pollo mongolian, carnitas coloradas</span>
+            <span class="mr-gloss" data-en="Spring roll, fried rice, Mongolian chicken, red roast pork" data-es="">Spring roll, fried rice, Mongolian chicken, red roast pork</span>
+          </span>
+          <span class="mr-price font-display">$200</span>
+        </div>
+        <div class="menu-row">
+          <span class="mr-no font-display">6</span>
+          <span class="mr-body">
+            <span class="mr-name">Pollo frito, arroz frito, papas fritas, carnitas coloradas</span>
+            <span class="mr-gloss" data-en="Fried chicken, fried rice, fries, red roast pork" data-es="">Fried chicken, fried rice, fries, red roast pork</span>
+          </span>
+          <span class="mr-price font-display">$180</span>
+        </div>
+        <div class="menu-row">
+          <span class="mr-no font-display">7</span>
+          <span class="mr-body">
+            <span class="mr-name">Arroz frito, pollo empapelado, combinacion china, carnitas coloradas</span>
+            <span class="mr-gloss" data-en="Fried rice, paper-wrapped chicken, Chinese combination, red roast pork" data-es="">Fried rice, paper-wrapped chicken, Chinese combination, red roast pork</span>
+          </span>
+          <span class="mr-price font-display">$215</span>
+        </div>
+        <div class="menu-row">
+          <span class="mr-no font-display">8</span>
+          <span class="mr-body">
+            <span class="mr-name">Camarones empanizados, papas fritas, arroz frito, carnitas coloradas</span>
+            <span class="mr-gloss" data-en="Breaded shrimp, fries, fried rice, red roast pork" data-es="">Breaded shrimp, fries, fried rice, red roast pork</span>
+          </span>
+          <span class="mr-price font-display">$220</span>
+        </div>
+        <div class="menu-row">
+          <span class="mr-no font-display">9</span>
+          <span class="mr-body">
+            <span class="mr-name">Arroz frito, carnitas coloradas, camaron empanizado, camaron en salsa de ostion</span>
+            <span class="mr-gloss" data-en="Fried rice, red roast pork, breaded shrimp, shrimp in oyster sauce" data-es="">Fried rice, red roast pork, breaded shrimp, shrimp in oyster sauce</span>
+          </span>
+          <span class="mr-price font-display">$245</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== BOTANAS ===== -->
+    <section class="menu-cat key-frame reveal" id="botanas">
+      <div class="menu-cat-head">
+        <h2 class="font-display" data-en="Botanas" data-es="Botanas">Botanas</h2>
+        <span class="mxn">MXN</span>
+      </div>
+      <div class="menu-list">
+        <div class="menu-row">
+          <span class="mr-no font-display">&middot;</span>
+          <span class="mr-body">
+            <span class="mr-name">Combinacion de Botanas: Chun Kung, wonton frito, noodles fritos, pollo empapelado, carnitas coloradas, camaron empanizado</span>
+            <span class="mr-gloss" data-en="Appetizer combination: spring roll, fried wonton, fried noodles, paper-wrapped chicken, red roast pork, breaded shrimp" data-es="">Appetizer combination: spring roll, fried wonton, fried noodles, paper-wrapped chicken, red roast pork, breaded shrimp</span>
+          </span>
+          <!-- owner-confirm: Botanas combo price not legible on menu photo -->
+          <span class="mr-price ask" data-en="Ask in store" data-es="Consultar">Ask in store</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== COMIDA CORRIDA (for two) ===== -->
+    <section class="menu-cat key-frame reveal" id="corrida">
+      <div class="menu-cat-head">
+        <h2 class="font-display" data-en="Comida Corrida (for two)" data-es="Comida Corrida (para 2 personas)">Comida Corrida (for two)</h2>
+        <span class="mxn">MXN</span>
+      </div>
+      <div class="menu-list">
+        <div class="menu-row">
+          <span class="mr-no font-display">1</span>
+          <span class="mr-body">
+            <span class="mr-name">Chun Kung, arroz frito, pollo con pina, pollo cantones, chop suey con pollo, carnitas coloradas</span>
+            <span class="mr-gloss" data-en="Spring roll, fried rice, pineapple chicken, Cantonese chicken, chicken chop suey, red roast pork" data-es="">Spring roll, fried rice, pineapple chicken, Cantonese chicken, chicken chop suey, red roast pork</span>
+          </span>
+          <span class="mr-price font-display">$400</span>
+        </div>
+        <div class="menu-row">
+          <span class="mr-no font-display">2</span>
+          <span class="mr-body">
+            <span class="mr-name">Chun Kung, arroz frito, brocoli con res, chop suey especial, pollo a la plancha, carnitas coloradas, sopa de aleta de tiburon</span>
+            <span class="mr-gloss" data-en="Spring roll, fried rice, beef with broccoli, special chop suey, grilled chicken, red roast pork, shark fin soup" data-es="">Spring roll, fried rice, beef with broccoli, special chop suey, grilled chicken, red roast pork, shark fin soup</span>
+          </span>
+          <span class="mr-price font-display">$450</span>
+        </div>
+        <div class="menu-row">
+          <span class="mr-no font-display">3</span>
+          <span class="mr-body">
+            <span class="mr-name">Sopa aleta, wonton frito, pollo naranja, arroz cantones, pollo mongolian, pollo empapelado, chow mein especial</span>
+            <span class="mr-gloss" data-en="Fin soup, fried wonton, orange chicken, Cantonese rice, Mongolian chicken, paper-wrapped chicken, special chow mein" data-es="">Fin soup, fried wonton, orange chicken, Cantonese rice, Mongolian chicken, paper-wrapped chicken, special chow mein</span>
+          </span>
+          <span class="mr-price font-display">$500</span>
+        </div>
+        <div class="menu-row">
+          <span class="mr-no font-display">4</span>
+          <span class="mr-body">
+            <span class="mr-name">Sopa especial, lo mein de pollo, combinacion china, arroz frito cantones, pollo con pina, camarones sal y pimienta</span>
+            <span class="mr-gloss" data-en="Special soup, chicken lo mein, Chinese combination, Cantonese fried rice, pineapple chicken, salt and pepper shrimp" data-es="">Special soup, chicken lo mein, Chinese combination, Cantonese fried rice, pineapple chicken, salt and pepper shrimp</span>
+          </span>
+          <span class="mr-price font-display">$550</span>
+        </div>
+        <div class="menu-row">
+          <span class="mr-no font-display">5</span>
+          <span class="mr-body">
+            <span class="mr-name">Sopa aleta, chow mein mariscos, pescado empanizado, brocoli con camaron, camarones sal y pimienta, arroz frito con camarones</span>
+            <span class="mr-gloss" data-en="Fin soup, seafood chow mein, breaded fish, shrimp with broccoli, salt and pepper shrimp, fried rice with shrimp" data-es="">Fin soup, seafood chow mein, breaded fish, shrimp with broccoli, salt and pepper shrimp, fried rice with shrimp</span>
+          </span>
+          <span class="mr-price font-display">$650</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== BEBIDAS ===== -->
+    <section class="menu-cat key-frame reveal" id="bebidas">
+      <div class="menu-cat-head">
+        <h2 class="font-display" data-en="Bebidas (Drinks)" data-es="Bebidas">Bebidas (Drinks)</h2>
+        <span class="mxn">MXN</span>
+      </div>
+      <div class="bebidas-grid">
+        <div class="bebida-row">
+          <span class="br-name">Jarra de te <small data-en="Pitcher of tea" data-es="">Pitcher of tea</small></span>
+          <span class="br-price font-display">$150</span>
+        </div>
+        <div class="bebida-row">
+          <span class="br-name">Jarra de limonada <small data-en="Pitcher of lemonade" data-es="">Pitcher of lemonade</small></span>
+          <span class="br-price font-display">$150</span>
+        </div>
+        <div class="bebida-row">
+          <span class="br-name">Jarra de limonada mineral <small data-en="Pitcher of sparkling lemonade" data-es="">Pitcher of sparkling lemonade</small></span>
+          <span class="br-price font-display">$170</span>
+        </div>
+        <div class="bebida-row">
+          <span class="br-name">Sodas <small data-en="Sodas" data-es="">Sodas</small></span>
+          <span class="br-price font-display">$35</span>
+        </div>
+        <div class="bebida-row">
+          <span class="br-name">1/2 jarra de te <small data-en="Half pitcher of tea" data-es="">Half pitcher of tea</small></span>
+          <span class="br-price font-display">$100</span>
+        </div>
+        <div class="bebida-row">
+          <span class="br-name">1/2 jarra de limonada mineral <small data-en="Half pitcher of sparkling lemonade" data-es="">Half pitcher of sparkling lemonade</small></span>
+          <span class="br-price font-display">$120</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== A-la-carte note ===== -->
+    <p class="cat-note reveal" style="margin-top:1.6rem;text-align:center;max-width:64ch;margin-inline:auto;"
+       data-en="Many dishes from the combos are also available on their own, like chow mein, lo mein, pollo naranja, brocoli con res, camarones sal y pimienta, pollo con pina, chop suey, and pollo empapelado. Just ask your server."
+       data-es="Muchos platillos de los combinados tambi&eacute;n se pueden pedir solos, como chow mein, lo mein, pollo naranja, br&oacute;coli con res, camarones sal y pimienta, pollo con pi&ntilde;a, chop suey y pollo empapelado. Pregunta a tu mesero.">Many dishes from the combos are also available on their own, like chow mein, lo mein, pollo naranja, brocoli con res, camarones sal y pimienta, pollo con pina, chop suey, and pollo empapelado. Just ask your server.</p>
+  </div>
+</section>
+
+<!-- =========================== ORDER CTA BAND =========================== -->
+<section class="band band-red has-watermark order-band">
+  <img class="watermark-medallion" src="assets/photos/dragon-medallion.jpg" alt="" aria-hidden="true" />
+  <div class="wrap">
+    <span class="kicker reveal" data-en="Hungry?" data-es="&iquest;Con hambre?">Hungry?</span>
+    <h2 class="h-sec reveal" data-delay="1" data-en="Call to order." data-es="Llama para ordenar.">Call to order.</h2>
+    <p class="lead reveal" data-delay="1" style="margin-inline:auto;" data-en="Servicio a domicilio. We will bring your order to your door." data-es="Servicio a domicilio. Te llevamos tu orden hasta tu puerta.">Servicio a domicilio. We will bring your order to your door.</p>
+    <div class="ob-ctas reveal" data-delay="2">
+      <a class="btn btn-primary" href="tel:+526386883284" data-en="Call to Order" data-es="Llama para Ordenar">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.5.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.5.1.4 0 .8-.3 1l-2.2 2.3z"/></svg>
+        <span data-en="Call to Order" data-es="Llama para Ordenar">Call to Order</span>
+      </a>
+      <a class="btn btn-ghost" href="visit.html" data-en="Visit Us" data-es="Vis&iacute;tanos">Visit Us</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- =========================================================================
+     SHARED FOOTER (identical on every page)
+     ========================================================================= -->
+<footer class="site-footer">
+  <div class="greek-strip" aria-hidden="true"></div>
+  <div class="wrap footer-inner">
+    <div class="footer-brand">
+      <img class="medallion" src="assets/photos/dragon-medallion.jpg" width="52" height="52" alt="Dragon House gold dragon medallion" data-en="Dragon House gold dragon medallion" data-es="Medallon dorado del dragon de Dragon House" />
+      <span class="fb-word font-display">Dragon House</span>
+      <span class="fb-sub">Cocina China y Cantonesa</span>
+    </div>
+    <p class="footer-tag"
+       data-en="Authentic Chinese and Cantonese kitchen in the heart of Puerto Penasco. Come hungry, leave family."
+       data-es="Cocina china y cantonesa aut&eacute;ntica en el coraz&oacute;n de Puerto Pe&ntilde;asco. Llega con hambre, sal como familia.">Authentic Chinese and Cantonese kitchen in the heart of Puerto Penasco. Come hungry, leave family.</p>
+
+    <div class="footer-cols">
+      <div class="footer-col">
+        <h4 data-en="Visit" data-es="Vis&iacute;tanos">Visit</h4>
+        <p data-en="Cuauhtemoc 48, Centro" data-es="Cuauht&eacute;moc 48, Centro">Cuauhtemoc 48, Centro</p>
+        <p>83550 Puerto Pe&ntilde;asco, Sonora</p>
+        <p data-en="Between Calle Sonora and Melchor Ocampo" data-es="Entre Calle Sonora y Melchor Ocampo">Between Calle Sonora and Melchor Ocampo</p>
+      </div>
+      <div class="footer-col">
+        <h4 data-en="Hours" data-es="Horario">Hours</h4>
+        <p data-en="Open daily" data-es="Abierto todos los d&iacute;as">Open daily</p>
+        <p data-en="12:00 PM to 9:00 PM" data-es="12:00 a 21:00">12:00 PM to 9:00 PM</p>
+        <div class="footer-pills pill-row">
+          <span class="pill pill-lantern" data-en="Delivery" data-es="A domicilio">Delivery</span>
+          <span class="pill" data-en="Cards" data-es="Tarjetas">Cards</span>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4 data-en="Contact" data-es="Contacto">Contact</h4>
+        <p><a class="fc-phone font-display" href="tel:+526386883284">638 688 3284</a></p>
+        <p data-en="Servicio a domicilio (delivery)" data-es="Servicio a domicilio">Servicio a domicilio (delivery)</p>
+        <p data-en="Cards: Visa, Mastercard, Amex, Apple Pay" data-es="Tarjetas: Visa, Mastercard, Amex, Apple Pay">Cards: Visa, Mastercard, Amex, Apple Pay</p>
+        <!-- owner-confirm: add real FB/IG handles if any -->
+        <div class="footer-social">
+          <a href="https://www.facebook.com/search/top?q=Dragon%20House%20Puerto%20Penasco" target="_blank" rel="noopener" aria-label="Find Dragon House on Facebook" data-en-label="Find Dragon House on Facebook" data-es-label="Encu&eacute;ntranos en Facebook">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14 9h3l.5-3H14V4.5c0-.9.3-1.5 1.6-1.5H17V.3C16.6.2 15.6 0 14.5 0 12 0 10.5 1.4 10.5 4.1V6H8v3h2.5v9H14z"/></svg>
+            <span>Facebook</span>
+          </a>
+          <a href="https://www.google.com/maps/search/Dragon+House+Cuauhtemoc+48+Puerto+Penasco" target="_blank" rel="noopener" aria-label="Find Dragon House on Google" data-en-label="Find Dragon House on Google" data-es-label="Encu&eacute;ntranos en Google">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 21s7-5.6 7-11a7 7 0 10-14 0c0 5.4 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+            <span data-en="Reviews" data-es="Rese&ntilde;as">Reviews</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; <span id="year"></span> Dragon House &middot; <span data-en="Site by" data-es="Sitio por">Site by</span> <a href="index.html">NeonFrame</a></p>
+    </div>
+  </div>
+</footer>
+<!-- =========================== END SHARED FOOTER =========================== -->
+
+<!-- Lightbox (shared markup; used by the printed-menu photos here and the gallery) -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Photo viewer" data-en-label="Photo viewer" data-es-label="Visor de fotos">
+  <button type="button" class="lightbox-close" data-lb-close aria-label="Close" data-en-label="Close" data-es-label="Cerrar">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+  </button>
+  <button type="button" class="lightbox-nav prev" data-lb-prev aria-label="Previous photo" data-en-label="Previous photo" data-es-label="Foto anterior">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg>
+  </button>
+  <button type="button" class="lightbox-nav next" data-lb-next aria-label="Next photo" data-en-label="Next photo" data-es-label="Siguiente foto">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
+  </button>
+  <figure class="lightbox-figure">
+    <img class="lb-img" src="" alt="" />
+    <figcaption class="lightbox-cap"></figcaption>
+  </figure>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
