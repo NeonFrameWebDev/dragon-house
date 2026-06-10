@@ -116,6 +116,9 @@ section{ position:relative; }
 .band-red .btn-ghost, .band-dark .btn-ghost{ color:var(--gold-hi); border-color:var(--gold); }
 .band-red .btn-ghost:hover, .band-dark .btn-ghost:hover,
 .band-red .btn-ghost:focus-visible, .band-dark .btn-ghost:focus-visible{ background:var(--gold); color:var(--ink); }
+/* WhatsApp order button */
+.btn-whatsapp{ background:#25D366; color:#fff; border-color:#128C7E; box-shadow:0 8px 20px rgba(37,211,102,.28); }
+.btn-whatsapp:hover,.btn-whatsapp:focus-visible{ transform:translateY(-2px); background:#1EBF5A; border-color:#128C7E; box-shadow:0 12px 26px rgba(37,211,102,.36); }
 
 .text-link{ font-family:"Nunito Sans", sans-serif; font-weight:700; color:var(--red-deep); position:relative; display:inline-flex; align-items:center; gap:.4rem; }
 .text-link::after{ content:""; position:absolute; left:0; bottom:-3px; height:2px; width:0; background:var(--gold); transition:width .25s var(--ease); }
