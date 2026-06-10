@@ -661,11 +661,13 @@ section{ position:relative; }
   .nav-toggle{ display:flex; }
   .nav-panel{ display:flex; }
   .intro-grid, .story-grid, .visit-grid{ grid-template-columns:1fr; }
-  .cards-3, .preview-grid{ grid-template-columns:1fr; }
+  .cards-3, .preview-grid{ grid-template-columns:repeat(2,1fr); }
   .printed-grid{ grid-template-columns:repeat(3,1fr); }
 }
+@media(max-width:640px){
+  .cards-3, .preview-grid{ grid-template-columns:1fr; }
+}
 @media(max-width:760px){
-  .cards-3{ grid-template-columns:1fr; }
   .photo-strip{ grid-template-columns:repeat(2,1fr); }
   .bebidas-grid{ grid-template-columns:1fr; }
   .footer-cols{ grid-template-columns:1fr; text-align:center; }
