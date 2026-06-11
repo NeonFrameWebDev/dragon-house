@@ -354,7 +354,12 @@ section{ position:relative; }
     linear-gradient(180deg, rgba(var(--black-rgb),.30) 0%, rgba(var(--black-rgb),0) 48%, rgba(var(--black-rgb),.55) 100%);
 }
 @media(max-width:760px){
-  .hero-left .hero-overlay{ background:linear-gradient(180deg, rgba(var(--black-rgb),.5) 0%, rgba(var(--black-rgb),.34) 42%, rgba(var(--black-rgb),.72) 100%); }
+  /* Stack image above text so the full building shows on portrait mobile */
+  .hero-left{ flex-direction:column; min-height:unset; background:var(--red-deep); }
+  .hero-left .hero-photo{ position:relative; aspect-ratio:3/2; width:100%; flex:0 0 auto; }
+  .hero-left .hero-overlay{ display:none; }
+  .hero-left .hero-content{ position:relative; z-index:auto; }
+  .hero-left .scroll-cue{ display:none; }
 }
 
 /* compact hero on a solid red/dark band (no photo) */
